@@ -33,6 +33,7 @@ namespace ConsoleApplication.SingleTon
             }
             private set { }
         }
+        
 
         public void PrintName(string name)
         {
