@@ -9,7 +9,7 @@ namespace ConsoleApplication.SingleTon
     public sealed class SingletonClassEagerLoading
     {
         private static int objectCreation_ = 0;
-        private static readonly SingletonClassEagerLoading instance = new SingletonClassEagerLoading();
+        private static readonly Lazy<SingletonClassEagerLoading> instance = new Lazy<SingletonClassEagerLoading>(() => new SingletonClassEagerLoading());
         private SingletonClassEagerLoading()
         {
             objectCreation_++;
@@ -19,7 +19,7 @@ namespace ConsoleApplication.SingleTon
         {
             get
             {
-                return instance;
+                return instance.Value;
             }
         }
 
