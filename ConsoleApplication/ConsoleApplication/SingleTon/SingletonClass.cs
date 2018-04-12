@@ -10,6 +10,7 @@ namespace ConsoleApplication.SingleTon
     {
         private static SingletonClass instance = null;
         private static int objectCreation_ = 0;
+        private static readonly object obj = new object();
         private SingletonClass()
         {
             objectCreation_++;
@@ -19,8 +20,17 @@ namespace ConsoleApplication.SingleTon
         {
             get
             {
-                if (instance == null)
-                    instance = new SingletonClass();
+               if (instance == null)
+                {
+                    lock (obj)
+                    {
+                        if (instance == null)
+                            instance = new SingletonClass();
+                    }
+                    
+
+                }
+                   
                 return instance;
             }
         }
