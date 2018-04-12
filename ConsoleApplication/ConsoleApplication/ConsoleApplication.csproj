@@ -45,6 +45,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleTon\SingletonClass.cs" />
+    <Compile Include="SingleTon\SingletonClassEagerLoading.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

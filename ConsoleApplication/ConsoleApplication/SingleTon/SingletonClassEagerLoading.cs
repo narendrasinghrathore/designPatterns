@@ -1,0 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication.SingleTon
+{
+    public sealed class SingletonClassEagerLoading
+    {
+        private static int objectCreation_ = 0;
+        private static readonly SingletonClassEagerLoading instance = new SingletonClassEagerLoading();
+        private SingletonClassEagerLoading()
+        {
+            objectCreation_++;
+        }
+
+        public static SingletonClassEagerLoading GetInstance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+
+        public static int TotalObjectCreations
+        {
+            get
+            {
+                return objectCreation_;
+            }
+            private set { }
+        }
+
+
+        public void PrintName(string name)
+        {
+            Console.WriteLine("Name: {0}", name);
+        }
+    }
+}
